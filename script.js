@@ -1,11 +1,11 @@
 function onFormSubmitted() {
-	parent.postMessage("{ 'test':'FormSubmitted', 'something':'djfksljfd' }","https://dev01-ecom2-1800contacts.demandware.net");
+	parent.postMessage("OPT_QUALIFICATION_SUBMITTED", "https://dev01-ecom2-1800contacts.demandware.net");
 }
 
 function onUserQualified() {
-	parent.postMessage("{ 'test':'UserQualified', 'something':'djfksljfd' }","https://dev01-ecom2-1800contacts.demandware.net");
+	parent.postMessage("OPT_QUALIFICATION_QUALIFIED", "https://dev01-ecom2-1800contacts.demandware.net");
 }
 
 function onUserDisqualified() {
-	parent.postMessage("{ 'test':'UserDisqualified', 'something':'djfksljfd' }","https://dev01-ecom2-1800contacts.demandware.net");
+	parent.postMessage("OPT_QUALIFICATION_DISQUALIFIED", "https://dev01-ecom2-1800contacts.demandware.net");
 }
