@@ -1,10 +1,347 @@
+<!DOCTYPE html>
 <html>
-	<head>
-	</head>
-	<body>
-		<button id="btnSubmit" onclick="onFormSubmitted()">Form Submitted</button>
-		<button id="btnUserQ" onclick="onUserQualified()">User Qualified</button>
-		<button id="bntUserDQ" onclick="onUserDisqualified()">User Disqualified</button>
-		<script src="./script.js" /></script>
-	</body>
+  <head>
+    <title>Opternative</title>
+    <link rel="stylesheet" media="all" href="assets/application.css" />
+  </head>
+  <body>
+    <div
+      ng-app="opt.qualifications.survey"
+      ng-controller="SurveyCtrl as ctrl"
+      style="display: none;"
+      class="container text-center">
+
+      <div class="progress-component">
+        <div class="progress-wrapper">
+          <div class="progress">
+            <div
+              class="progress-bar"
+              style="width: {{ctrl.state / (ctrl.LAST_STATE + 1) * 100}}%;">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form
+        ng-show="ctrl.state === ctrl.STATES.BIRTHDATE"
+        ng-submit="ctrl.nextState()"
+        name="ctrl.birthdateForm"
+        novalidate
+        class="form">
+
+        <label class="control-label">What is your date of birth?</label>
+        <div class="form-control form-control-date">
+          <input
+            ng-model="ctrl.qualification.user['birthday(2i)']"
+            type="text"
+            name="birthday(2i)"
+            placeholder="MM"
+            required
+            minlength="1"
+            maxlength="2"
+            inputmode="numeric"
+            autofocus
+            class="text_field">
+          <input
+            ng-model="ctrl.qualification.user['birthday(3i)']"
+            type="text"
+            name="birthday(3i)"
+            placeholder="DD"
+            required
+            minlength="1"
+            maxlength="2"
+            inputmode="numeric"
+            class="text_field">
+          <input
+            ng-model="ctrl.qualification.user['birthday(1i)']"
+            type="text"
+            name="birthday(1i)"
+            placeholder="YYYY"
+            required
+            minlength="4"
+            maxlength="4"
+            inputmode="numeric"
+            class="text_field">
+        </div>
+
+        <div class="form-action">
+          <button ng-disabled="ctrl.birthdateForm.$invalid" type="submit" class="btn btn-primary">
+            Continue
+          </button>
+        </div>
+
+      </form>
+
+      <form
+        ng-show="ctrl.state === ctrl.STATES.STATE"
+        ng-submit="ctrl.nextState()"
+        name="ctrl.stateForm"
+        novalidate
+        class="form">
+
+        <label class="control-label">What state are you in?</label>
+
+        <div class="form-control form-control-state">
+          <div class="select">
+            <select ng-model="ctrl.qualification.user.region_id" required>
+              <option value="">Select State</option>
+              <option value="1">Alabama</option>
+              <option value="2">Alaska</option>
+              <option value="3">Arizona</option>
+              <option value="4">Arkansas</option>
+              <option value="5">California</option>
+              <option value="6">Colorado</option>
+              <option value="7">Connecticut</option>
+              <option value="8">Delaware</option>
+              <option value="9">District of Columbia</option>
+              <option value="10">Florida</option>
+              <option value="11">Georgia</option>
+              <option value="12">Hawaii</option>
+              <option value="13">Idaho</option>
+              <option value="14">Illinois</option>
+              <option value="15">Indiana</option>
+              <option value="16">Iowa</option>
+              <option value="17">Kansas</option>
+              <option value="18">Kentucky</option>
+              <option value="19">Louisiana</option>
+              <option value="20">Maine</option>
+              <option value="21">Maryland</option>
+              <option value="22">Massachusetts</option>
+              <option value="23">Michigan</option>
+              <option value="24">Minnesota</option>
+              <option value="25">Mississippi</option>
+              <option value="26">Missouri</option>
+              <option value="27">Montana</option>
+              <option value="28">Nebraska</option>
+              <option value="29">Nevada</option>
+              <option value="30">New Hampshire</option>
+              <option value="31">New Jersey</option>
+              <option value="32">New Mexico</option>
+              <option value="33">New York</option>
+              <option value="34">North Carolina</option>
+              <option value="35">North Dakota</option>
+              <option value="36">Ohio</option>
+              <option value="37">Oklahoma</option>
+              <option value="38">Oregon</option>
+              <option value="39">Pennsylvania</option>
+              <option value="40">Puerto Rico</option>
+              <option value="41">Rhode Island</option>
+              <option value="42">South Carolina</option>
+              <option value="43">South Dakota</option>
+              <option value="44">Tennessee</option>
+              <option value="45">Texas</option>
+              <option value="46">Utah</option>
+              <option value="47">Vermont</option>
+              <option value="48">Virginia</option>
+              <option value="49">Washington</option>
+              <option value="50">West Virginia</option>
+              <option value="51">Wisconsin</option>
+              <option value="52">Wyoming</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-action">
+          <button
+            ng-disabled="ctrl.stateForm.$invalid"
+            type="submit"
+            class="btn btn-primary">
+            Continue
+          </button>
+        </div>
+
+      </form>
+
+      <form
+        ng-show="ctrl.state === ctrl.STATES.PREGNANT_OR_NURSING"
+        ng-submit="ctrl.nextState()"
+        name="ctrl.pregnantNursingForm"
+        novalidate
+        class="form">
+
+        <label class="control-label">Are you pregnant or nursing?</label>
+
+        <div class="form-control form-control-radio">
+          <div class="radio">
+            <input
+              ng-model="ctrl.qualification.survey.pregnant_or_nursing"
+              name="pregnant_or_nursing"
+              type="radio"
+              value="true"
+              required
+              id="pregnant-or-nursing-yes">
+            <label for="pregnant-or-nursing-yes">Yes</label>
+          </div>
+          <div class="radio">
+            <input
+              ng-model="ctrl.qualification.survey.pregnant_or_nursing"
+              name="pregnant_or_nursing"
+              type="radio"
+              value="false"
+              required
+              id="pregnant-or-nursing-no">
+            <label for="pregnant-or-nursing-no">No</label>
+          </div>
+        </div>
+
+        <div class="form-action">
+          <button
+            ng-disabled="ctrl.pregnantNursingForm.$invalid"
+            type="submit"
+            class="btn btn-primary">
+            Continue
+          </button>
+        </div>
+
+      </form>
+
+      <form
+        ng-show="ctrl.state === ctrl.STATES.CHRONIC_HEALTH"
+        ng-submit="ctrl.nextState()"
+        name="ctrl.chronicHealthForm"
+        novalidate
+        class="form">
+
+        <label class="control-label">
+          Do you have any of the following health conditions:<br>
+          diabetes, heart disease, high blood pressure, and/or migraines with
+          visual distortions?
+        </label>
+
+        <div class="form-control form-control-radio">
+          <div class="radio">
+            <input
+              ng-model="ctrl.qualification.survey.has_chronic_health_condition"
+              name="has_chronic_health_condition"
+              type="radio"
+              value="true"
+              required
+              id="chronic-health-yes">
+            <label for="chronic-health-yes">Yes</label>
+          </div>
+          <div class="radio">
+            <input
+              ng-model="ctrl.qualification.survey.has_chronic_health_condition"
+              name="has_chronic_health_condition"
+              type="radio"
+              value="false"
+              required
+              id="chronic-health-no">
+            <label for="chronic-health-no">No</label>
+          </div>
+        </div>
+
+        <div class="form-action">
+          <button
+            ng-disabled="ctrl.chronicHealthForm.$invalid"
+            type="submit"
+            class="btn btn-primary">
+            Continue
+          </button>
+        </div>
+
+      </form>
+
+      <form
+        ng-show="ctrl.state === ctrl.STATES.DISCOMFORT"
+        ng-submit="ctrl.nextState()"
+        name="ctrl.recentEyeProblemForm"
+        novalidate
+        class="form">
+
+        <label class="control-label">
+          Have you recently experienced any pain, discomfort, or sudden loss of
+          vision with your eyes?
+        </label>
+
+        <div class="form-control form-control-radio">
+          <div class="radio">
+            <input
+              ng-model="ctrl.qualification.survey.has_recent_eye_problem"
+              name="has_recent_eye_problem"
+              type="radio"
+              value="true"
+              required
+              id="recent-eye-problem-yes">
+            <label for="recent-eye-problem-yes">Yes</label>
+          </div>
+          <div class="radio">
+            <input
+              ng-model="ctrl.qualification.survey.has_recent_eye_problem"
+              name="has_recent_eye_problem"
+              type="radio"
+              value="false"
+              required
+              id="recent-eye-problem-no">
+            <label for="recent-eye-problem-no">No</label>
+          </div>
+        </div>
+
+        <div class="form-action">
+          <button
+            ng-disabled="ctrl.recentEyeProblemForm.$invalid"
+            type="submit"
+            class="btn btn-primary">
+            Continue
+          </button>
+        </div>
+
+      </form>
+
+      <form
+        ng-show="ctrl.state === ctrl.STATES.RECENT_EYE_SURGERY"
+        ng-submit="ctrl.submit()"
+        name="ctrl.eyeDiseaseSurgeryPastYearForm"
+        novalidate
+        class="form">
+
+        <label class="control-label">
+          Have you ever had any type of eye disease or had eye surgery in the
+          last 12 months?
+        </label>
+
+        <div class="form-control form-control-radio">
+          <div class="radio">
+            <input
+              ng-model="ctrl.qualification.survey.has_eye_disease_surgery_past_year"
+              name="has_eye_disease_surgery_past_year"
+              type="radio"
+              value="true"
+              required
+              id="eye-disease-surgery-past-year-yes">
+            <label for="eye-disease-surgery-past-year-yes">Yes</label>
+          </div>
+          <div class="radio">
+            <input
+              ng-model="ctrl.qualification.survey.has_eye_disease_surgery_past_year"
+              name="has_eye_disease_surgery_past_year"
+              type="radio"
+              value="false"
+              required
+              id="eye-disease-surgery-past-year-no">
+            <label for="eye-disease-surgery-past-year-no">No</label>
+          </div>
+        </div>
+
+        <div class="form-action">
+          <button
+            ng-disabled="ctrl.eyeDiseaseSurgeryPastYearForm.$invalid"
+            type="submit"
+            class="btn btn-primary">
+            Continue
+          </button>
+        </div>
+
+      </form>
+
+      <div class="footer">
+        <hr>
+        Powered by <img src="assets/opternative-logo.png" width="130" id="footerLogo" />
+      </div>
+    </div>
+
+    <script src="assets/vendor/angular/angular.js"></script>
+    <script src="assets/vendor/angular-resource/angular-resource.js"></script>
+    <script src="assets/application.js"></script>
+  </body>
 </html>
