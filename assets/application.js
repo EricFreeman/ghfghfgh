@@ -86,7 +86,7 @@
    */
   SurveyCtrl.prototype._emitEvent = function(eventType, data) {
     var message = angular.extend({}, {eventType: eventType}, data);
-    return parent.postMessage(message, "*");
+    parent.postMessage(message, "*");
   };
 
 })();
