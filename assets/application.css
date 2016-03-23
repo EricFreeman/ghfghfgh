@@ -895,7 +895,7 @@ input[type="email"], input[type="number"], input[type="password"], input[type="s
 }
 
 .control-label {
-  font-size: 22px;
+  font-size: 24px;
   margin-bottom: 2em;
   line-height: 1.2em;
   color: #666;
@@ -1000,8 +1000,7 @@ input[type="email"], input[type="number"], input[type="password"], input[type="s
 	  width: 100%;
   }
   .control-label{
-    line-height: initial;
-    font-size: 6vw;
+	  
   }
   .btn-primary{
     width: 100%;
