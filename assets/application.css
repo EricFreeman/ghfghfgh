@@ -431,7 +431,7 @@ th {
   font-size: 16px;
   letter-spacing: 1px;
   font-weight: 100;
-  padding: 10px 36px;
+  padding: 14px 36px;
   text-decoration: none;
   font-weight: normal;
   border-radius: 0;
@@ -895,8 +895,10 @@ input[type="email"], input[type="number"], input[type="password"], input[type="s
 }
 
 .control-label {
-  font-size: 28px;
+  font-size: 22px;
+  margin-bottom: 2em;
   line-height: 1.2em;
+  color: #666;
 }
 
 .form-control {
@@ -992,7 +994,7 @@ input[type="email"], input[type="number"], input[type="password"], input[type="s
   .form-control-date input[type=text]{
     width: 50%;
     border-radius: 4px;
-    margin-bottom: .25em;
+    margin-bottom: .75em;
   }
   .form-control-state .select{
 	  width: 100%;
