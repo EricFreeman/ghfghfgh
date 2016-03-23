@@ -906,7 +906,7 @@ input[type="email"], input[type="number"], input[type="password"], input[type="s
 }
 
 .form-control-date input[type=text] {
-  margin: 0 7px;
+  margin: 0 3px;
   width: 100px;
 }
 
