@@ -927,9 +927,11 @@ input[type="email"], input[type="number"], input[type="password"], input[type="s
 }
 .progress-component:before{
   content: 'Start';
+  font-style: italic;
 }
 .progress-component:after{
   content: 'Finish';
+  font-style: italic;
 }
 .progress-component.complete{
   color: green;
@@ -940,7 +942,7 @@ input[type="email"], input[type="number"], input[type="password"], input[type="s
 }
 .progress-wrapper{
   margin: 0 .75em;
-  width: 340px;
+  width: 75%;
   height: 48px;
   border: 8px solid #efefef;
   background: #efefef;
