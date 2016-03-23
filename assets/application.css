@@ -435,7 +435,7 @@ th {
   text-decoration: none;
   font-weight: normal;
   border-radius: 0;
-  background-color: #008fe8;
+  background-color: #008FE8;
   color: #fff;
   -webkit-transition: all 100ms ease-in-out;
   -moz-transition: all 100ms ease-in-out;
@@ -504,8 +504,8 @@ button.btn-block, input.btn-block {
 .btn-primary {
   border: 0;
   font-weight: normal;
-  background-color: #2270cd;
-  border-color: #00479b;
+  background-color: #008FE8;
+  border-color: #008FE8;
   color: #fff;
   -webkit-transition: all 100ms ease-in-out;
   -moz-transition: all 100ms ease-in-out;
