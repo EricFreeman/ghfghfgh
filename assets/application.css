@@ -734,8 +734,8 @@ body {
   color: #4e4e4e;
   padding: 90px 0 76px;
   -webkit-font-smoothing: antialiased;
-  font-family: "ProximaNova", Arial, sans-serif;
-  font-weight: 400;
+  font-family: "ProximaNovaLight", Arial, sans-serif;
+  font-weight: 100;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -949,6 +949,10 @@ input[type="email"], input[type="number"], input[type="password"], input[type="s
 .progress-component.complete .progress-wrapper{
   border-color: green;
 }
+.progress-component.complete .progress-bar {
+  border-top-right-radius: 28px;
+  border-bottom-right-radius: 28px;
+}
 .progress {
   border: 2px solid #b5daec;
   border-radius: 22px;
@@ -957,11 +961,43 @@ input[type="email"], input[type="number"], input[type="password"], input[type="s
 .progress-bar {
   height: 28px;
   border-radius: 28px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
   min-width: 28px;
   position: relative;
   transition: width 600ms ease-in-out;
   background: #3f6bb3;
   background: linear-gradient(to bottom,  #3f6bb3 0%,#2d337b 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f6bb3', endColorstr='#2d337b',GradientType=0 );
+}
 
+
+@media only screen and (max-width: 669px) {
+  body{
+    padding: 48px 0 76px;
+  }
+  .form{
+    min-height: 256px
+  }
+  .progress-component{
+    margin-bottom: 28px;
+  }
+  .progress-component:before, .progress-component:after{
+    content: '';
+  }
+  .progress-wrapper{
+    width: 92%;
+  }
+  .form-control-date input[type=text]{
+    width: 50%;
+    border-radius: 4px;
+    margin-bottom: .25em;
+  }
+  .control-label{
+    line-height: initial;
+    font-size: 6vw;
+  }
+  .btn-primary{
+    width: 100%;
+  }
 }
