@@ -993,6 +993,9 @@ input[type="email"], input[type="number"], input[type="password"], input[type="s
     border-radius: 4px;
     margin-bottom: .25em;
   }
+  .form-control-state .select{
+	  width: 100%;
+  }
   .control-label{
     line-height: initial;
     font-size: 6vw;
