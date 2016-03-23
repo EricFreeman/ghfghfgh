@@ -894,8 +894,8 @@ input[type="email"], input[type="number"], input[type="password"], input[type="s
 }
 
 .control-label {
-  font-size: 36px;
-  line-height: 36px;
+  font-size: 28px;
+  line-height: 1.2em;
 }
 
 .form-control {
