@@ -510,6 +510,7 @@ button.btn-block, input.btn-block {
   -webkit-transition: all 100ms ease-in-out;
   -moz-transition: all 100ms ease-in-out;
   transition: all 100ms ease-in-out;
+  margin-top: 3em;
 }
 .btn-primary:hover {
   background-color: #3371bb;
@@ -775,7 +776,7 @@ hr {
   vertical-align: middle;
 }
 .form {
-  min-height: 300px;
+  min-height: 14em;
   display: -webkit-box;
   display: -moz-box;
   display: box;
@@ -920,7 +921,7 @@ input[type="email"], input[type="number"], input[type="password"], input[type="s
 .progress-component{
   color: #ccc;
   font-size: .75em;
-  margin-bottom: 88px;
+  margin-bottom: 6em;
 }
 .progress-component:before{
   content: 'Start';
@@ -974,7 +975,7 @@ input[type="email"], input[type="number"], input[type="password"], input[type="s
 
 @media only screen and (max-width: 669px) {
   body{
-    padding: 48px 0 76px;
+    padding: 4em 0;
   }
   .form{
     min-height: 256px
